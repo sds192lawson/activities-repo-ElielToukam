@@ -1,0 +1,34 @@
+---
+title: "Exercise 1 & 2"
+author: "Eliel"
+format: html
+---
+
+```{r}
+mtcars |>
+  select(mpg, cyl)
+
+```
+```{r}
+obj1 <- 2:10
+obj2 <- c(2, 5)
+obj3 <- c(TRUE, FALSE)
+obj4 <- 42
+
+```
+
+```{r}
+obj1 * 10
+obj1[2:4]
+obj1[-3]
+obj1 + obj2
+obj1 * obj3
+obj1 + obj4
+obj2 + obj3
+sum(obj2)
+sum(obj3)
+
+```
+
+  
+  
