@@ -1,0 +1,55 @@
+---
+title: "2-18"
+author: "Eliel Toukam Nkamta"
+format: html
+---
+
+```{r}
+library(mlbench)
+library(ggplot2)
+
+```
+
+```{r}
+data(BostonHousing2)
+```
+
+
+```{r}
+ggplot(BostonHousing2, aes(x = medv)) +
+  geom_boxplot() + theme_classic() + 
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.line.y = element_blank()) +
+  labs(x = "Median Value of Owner-Occupied Homes ($1000s)")
+```
+ 
+
+```{r}
+#my own plot
+ggplot(BostonHousing2, aes(x = cmedv, fill= "tax")) +
+  geom_boxplot() +
+  theme_classic()+
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.line.y = element_blank())+
+  labs(x = "Corrected Median Value of Owner-Occupied Homes ($1000s)")
+```
+
+
+```{r}
+cor(BostonHousing2$nox, BostonHousing2$medv)
+```
+
+```{r}
+#my own plot
+ggplot(BostonHousing2, aes(x = age, y= zn)) +
+  geom_point(alpha = 0.9) +
+  geom_smooth(method= "lm", color = "blue")+
+  theme_minimal()+
+  labs( title= "Plot of proportion of residential land zoned for lots over 25000sq.ft Vs Age",
+    x = "Age",
+    y= "Plot of proportion of residential land zoned for lots over 25000sq.ft ")
+```
+```
+
