@@ -1,0 +1,48 @@
+---
+title: "Exercise for Readings 6"
+author: "Eliel"
+format: html
+---
+```{r}
+library(Lahman)
+library(tidyverse)
+```
+
+```{r}
+Batting <- Batting
+Pitching <- Pitching
+People <- People
+```
+
+```{r}
+ Batting |>
+  group_by(playerID)|>
+  summarize(TotalHR= sum(HR),
+            TotalSB= sum(SB))|>
+ left_join(People, by = c("playerID" = "playerID")) |>
+filter(TotalHR >= 300 , TotalSB >= 300) |>
+  select(playerID, nameFirst, nameLast, TotalHR, TotalSB) 
+```
+ 
+```{r}
+Pitching |>
+  group_by(playerID)|>
+  summarize(TotalW= sum(W),
+            TotalSO= sum(SO))|>
+ left_join(People, by = c("playerID" = "playerID")) |>
+filter(TotalW >= 300 , TotalSO >= 3000) |>
+  select(playerID, nameFirst, nameLast, TotalW, TotalSO) 
+```
+
+```{r}
+Batting |>
+  group_by(playerID, yearID)|>
+  summarize(TotalHR= sum(HR),
+            TotalSO= sum(SO),
+            Battingavg= TotalHR/(TotalHR+TotalSO))|>
+ left_join(People, by = c("playerID" = "playerID")) |>
+filter(TotalHR >= 50) |>
+  select(playerID, yearID, nameFirst, nameLast, TotalHR, Battingavg)|>
+  arrange(Battingavg) 
+```
+#playerID judgeaa01 with name Aaron Judge has the lowest Batting average
