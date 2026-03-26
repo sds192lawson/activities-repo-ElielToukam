@@ -1,0 +1,38 @@
+---
+title: "Activity3_25"
+author: "Eliel"
+format: html
+---
+```{r}
+library(tidyverse)
+USAccDeaths
+```
+
+```{r}
+deaths <- as.data.frame(matrix(USAccDeaths, nrow = 6, ncol = 12, byrow = T))
+deaths <- deaths |> 
+  mutate(year = 1973:1978) |>
+  rename("jan" = V1, "feb" = V2, "mar" = V3,
+         "apr" = V4, "may" = V5, "jun" = V6,
+         "jul" = V7, "aug" = V8, "sep" = V9,
+         "oct" = V10, "nov" = V11, "dec" = V12) |>
+  relocate(year)
+```
+
+```{r}
+deathslonger <-deaths |>
+  pivot_longer(cols = -year,
+              names_to = "month",
+              values_to = "deaths")
+```
+
+```{r}
+deathswider <- deathslonger |>
+  pivot_wider(names_from = "month",
+              values_from = "deaths")
+```
+
+```{r}
+starwars
+```
+
