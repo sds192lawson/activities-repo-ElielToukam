@@ -1,0 +1,37 @@
+---
+title: "Activity_4_15"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(leaflet)
+library(sf)
+library(mlbench)
+```
+
+```{r}
+data(BostonHousing2)
+BostonHousing2<- BostonHousing2 |> 
+  st_transform(4326)
+```
+
+```{r}
+ pal <- colorNumeric(palette = "YlOrRd", 
+                    domain = BostonHousing2$cmedv,
+                    reverse = TRUE)
+)
+```
+
+```{r}
+
+leaflet () |>
+  setView(lat= 42.2875, lng= -70.9500 , zoom= 7) |>
+  addProviderTiles("OpenStreetMap")|>
+  addCircleMarkers(data= BostonHousing2,
+                   fillColor = ~pal(cmedv),
+                   stroke = T)
+  
+```
+
+
