@@ -1,0 +1,80 @@
+---
+title: "Reading Exercise #2 2/12"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+#1
+```{r}
+#1 The graphic does not show which type of transimission each car has and so we cannot get that information from the qraphic but using the shape aesthetic of ggplot, we can graph cars with different shapes representing 1 or 0 for transmission type
+```
+
+#2
+```{r}
+#2 Project Managemnt Charts:  The article spoke about data represenation with size of charts. It em[hasized labelling which gives guidance 
+```
+
+#3
+```{r}
+# Link:  https://preview.redd.it/if-you-exclude-healthcare-employment-the-u-s-has-lost-jobs-v0-bbsk6x5g5wig1.png?width=1080&crop=smart&auto=webp&s=39ff9c568d4d11cde4595ce203dfef6d991ea327
+
+#Commwnt: I find this graph compelling because its label is big and clear and then the colors shows a clear distinction between the health care industry and other industries. Additionally the line graph clearly established the trend which was easy to follow. 
+```
+
+```{r}
+# link: https://preview.redd.it/two-weeks-of-hiking-activity-in-southern-spain-punchcard-v0-be7dqcwmn9jg1.png?auto=webp&s=13b0905803a095d0f32ff2fdc0f75cf6ef6229aa
+
+# Comment : I find this graph difficult to understand because he used scattered plots to represent steps which is discrete and could have used a boxplot or a bar plot for better presentation. I also think that he did not have to plot dat on the y axis as he could have plotted day as color then steps on the y-axis. The graph is judt filled with points that make it difficult to see a trend and the colors are not distinct.
+```
+ 
+#4
+```{r}
+#link: https://dynamicecology.wordpress.com/wp-content/uploads/2024/04/publishing_types-1.png
+
+#comment: I think this data was well presented as the axis are labelled and you can seea clear increase in number of papers published over the years. The coloring too is clear with boundaries per type of paper.
+
+#link: https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=8460600_nihms-1714931-f0004.jpg
+
+#Comment: I know biology specifically is more complex in data presentation but i feel like the multicolored bar graph is difficult to understand. I cannot get the trend in the data. From what I am seeing it appers the plot was created to show data that was collected and not establish a trend, i feel like a title would have made this clearer.
+```
+
+#5
+```{r}
+#Whose taxes rose and fell conveys change in taxes in percent for different income group over some yeard with no x axis labels but line labels which i found creative while who gains from most tax breaks is abit confusing but I think it tells us the amount of money collected for taxes in 2011 in the united states.
+
+#For "whose taxes rose and fell, the y axis was not labelled but I think the line labellings still conveyed infromation clearly and looking deeply the economic status labels stil served as a y axis while the other plot had similar y axis label but no x-axis which seemed fine to convey information but I still got confused if the colors represented money gained or lost and who is gaining ?
+
+# The "Who gains most from taxes" was extremely misleading because I dont know if the income level stated at the edge are the people gaining or not and some bars go far beyond others which makes the trend lost and confusing.
+```
+
+#6
+```{r}
+#the y-axis label is not shown but from the reading I could suggest that it represents number of women using the particular birth control method who get pregnant.
+
+#data values represented are all in unit "women after 10 years of use" and all values were read from the top of the graph and not axis.: 
+#spermicides= 96in100 
+#fertilityawareness= 94in100 
+#sponge(after birth) = 94in100 
+#withdrawal= 92in100 
+#condom(female)= 91in100 
+#condom(female)= 86in100
+#Diaphragm= 72in100 
+#sponge(prior to many births)= 92in100
+#pill= 61in100 
+#Depo-Provera= 46in100
+#Copper IUD= 8in100 
+#Female sterilization=  5in100  
+#sponge(prior to many births)=  2in100 
+#Levonorgestel IUD= 2in100 
+#Male sterilization= 2in100
+#Hormone implants= 2in100
+
+#The visual cues used are colors, lines, x-axis label of years and graph titles with variables. The visual cues help you know which birth control method you are looking at from the titles, the years make you see variation per year after 10 years and the color of the line makes you see the difference between typical use and perfect use.
+
+#I think the information displayed by the graph shows the rate of pregnancies among women who use specific birth control methods after 10 years if use versus another graph calles perfect use of the control method.
+```
+

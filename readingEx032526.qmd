@@ -1,0 +1,21 @@
+---
+title: "readingEx032526"
+author: "Eliel Toukam"
+format: html
+---
+
+
+
+```{r}
+library(tidyverse)
+readingEx032526_Data <- read_xlsx("readingEx032526_Data.xlsx")
+```
+
+```{r}
+ readingEx032526_Data |>
+pivot_longer(cols= c(meanL, sdL, meanR, sdR),
+             names_to = "m_s", values_to = "values") |>
+  unite(sex.m_s,sex, m_s, sep = ".", remove= TRUE)|>
+    pivot_wider(names_from = "sex.m_s", values_from = "values")
+```
+

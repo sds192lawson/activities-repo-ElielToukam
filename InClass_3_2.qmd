@@ -1,0 +1,38 @@
+---
+title: "Class3/2"
+format: html
+---
+```{r}
+library(tidyverse)
+data(midwest)
+```
+
+```{r}
+midwest <- midwest
+```
+
+```{r}
+Q1_Column<- midwest |>
+  select(county, state, percprof, poppovertyknown, inmetro) |>
+  arrange(poppovertyknown, desc(percprof)) |>
+  filter(inmetro == 0 & percprof < 5) 
+```
+
+```{r}
+midwest|>
+  mutate(popProf= percprof/100 * poptotal) |>
+  select(county, state, popProf)
+```
+
+```{r}
+midwest |>
+  group_by(state) |>
+  summarize(
+    county= n(),
+    poptotal= n(),
+    poppovertyknown= median(poppovertyknown),
+    inmetro= mean(inmetro)
+    )
+```
+ 
+

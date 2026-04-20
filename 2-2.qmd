@@ -1,0 +1,16 @@
+---
+title: "Activity 2/2"
+author: "Eliel T"
+format: html
+---
+
+```{r}
+
+```
+
+
+```{r}
+mtcars
+data <- mtcars
+install.packages("tidyverse")
+library(mtcars, mpg, hp)```

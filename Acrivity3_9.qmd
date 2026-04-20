@@ -1,0 +1,56 @@
+---
+title: "Activity 3_9"
+format: html
+---
+
+
+```{r}
+library(tidyverse)
+wnba1 <- read.csv("wnba1.csv")
+wnba2 <- read.csv("wnba2.csv")
+wnbaStars <- read.csv("wnbaStars.csv")
+```
+
+```{r}
+Wnba1Ref <- wnba2 |>
+  bind_rows(wnba1) |>
+  filter(GS> 20) |>
+  mutate(New_C=ifelse(TOV<2, "Protective","Careless")) |>
+  select(Player, Team, Pos, PTS, TRB, AST, New_C)
+```
+
+```{r}
+Q2 <- wnbaStars |>
+  arrange(Player) |>
+  filter(Team == "PHO" | Team == "SEA")
+```
+
+```{r}
+Wnba1Ref |>
+  filter(Team %in% c("IND", "NYL", "LAS")) |>
+  group_by(Team, Pos) |>
+  summarize(Num_Subgroup= n(),
+            mean_PTS= mean(PTS),
+            mean_AST= mean(AST),
+```
+
+
+```{r}
+wnba1 |>
+  anti_join(Wnba1Ref, by= "Player")|>
+  group_by(Pos)|>
+  summarize(Count= n(),
+            avgPoints= mean(PTS),
+            PropTOVless= mean(TOV< 1))
+```
+
+```{r}
+wnba1 |>
+  inner_join(wnbaStars, by =c("Player", "Team")) |>
+  group_by(Team)|>
+  summarize(NPlayers= n(),
+            maxPoints = max(PTS),
+            Propguards= mean(G)) |>
+  filter(maxPoints >22)
+```
+

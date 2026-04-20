@@ -1,0 +1,56 @@
+---
+title: "Activity 3_23"
+author: "Eliel"
+format: html
+---
+
+```{r}
+library(tidyverse)
+prisons <- read.csv("Prison_Boundaries.csv")
+```
+
+```{r}
+x4 <- c(2, "times", TRUE, 4) |>
+print()
+```
+
+```{r}
+mtcars$am
+
+```
+
+```{r}
+is.character(mtcars$am)
+```
+
+```{r}
+mean(x3)
+mean(x1)
+mean(x2)
+```
+
+```{r}
+prisons |> 
+  select(NAME, SOURCEDATE) |> 
+  head(3)
+```
+
+```{r}
+glimpse(prisons)
+#I think some variables with improper datatypes are VAL_DATE, EditDate, SOURCEDATE
+```
+
+```{r}
+prisons <- prisons |>
+  mutate(EditDate = ymd_hms(EditDate),
+         VAL_DATE= ymd_hms(VAL_DATE))
+
+```
+
+```{r}
+Q5 <- prisons |>
+  mutate(EditDate = ydm_hms(EditDate),
+         VAL_DATE= ymd(VAL_DATE))
+  print(Q5)
+```
+

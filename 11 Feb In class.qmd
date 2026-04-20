@@ -1,0 +1,41 @@
+---
+title: "2/11"
+format: html
+---
+
+```{r}
+library(tidyverse)
+housing <- read.csv("https://jericholawson.github.io/classes/sds192/s26/data/housing.csv")
+```
+
+```{r}
+dim(housing)
+#numerical = housing median age, total rooms, bedrooms, population, households, median income, 
+#catagorical = latitude, longitude, median house value, ocean proximity
+```
+
+```{r}
+ggplot(
+  data = housing,
+aes( x = ocean_proximity,
+     fill = ocean_proximity)+
+    geom_bar()+
+  labs(title= "Frequencies of Groups of Ocean Proximity for California Districts, 1990",
+       fill= "ocean_proximity") +
+xlab ("Ocean Proximity")+
+ylab("Frequency") 
+```
+
+```{r}
+ggplot(
+  data = housing,
+aes( x = ocean_proximity,
+     y = median_income,
+     fill = ocean_proximity)+
+    geom_boxplot()+
+  labs(title= "Distribution of Median Household Income (in 1000s) by Ocean Proximity to California Districts, 1990",
+       fill= "ocean_proximity") +
+xlab("Ocean Proximity")+
+ylab("Median_Income") 
+```
+

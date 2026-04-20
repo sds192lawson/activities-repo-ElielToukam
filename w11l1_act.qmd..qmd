@@ -1,0 +1,56 @@
+---
+title: "w11l1_act.qmd"
+author: "Eliel"
+format: html
+---
+```{r}
+library(mlbench)
+library(tidyverse)
+data(BostonHousing2)
+```
+
+
+```{r}
+outliers <- function(Var,probs = c(0.25, 0.75)) {
+ #Step 1: Find Q1, Q3, and the IQR
+quarts <- quantile(BostonHousing2[[Var]], probs = probs)
+iqr <- quarts[2] - quarts[1]
+
+# Step 2: Find the bounds
+ub <- quarts[2] + 1.5 * iqr
+lb <- quarts[1] - 1.5 * iqr
+
+# Step 3: Show the outliers
+inds <- which(BostonHousing2[[Var]] < lb | BostonHousing2[[Var]] > ub)
+BostonHousing2 |> slice(inds) |>  head(3)
+ return() 
+}
+outliers ("medv", c(0.3,0.8))
+```
+
+
+
+```{r}
+outlier <- BostonHousing2 |> select(medv, crim, zn, indus) |>
+map(quantile)
+
+print(outlier)
+```
+
+```{r}
+box <- function(var) {
+ ggplot(data= BostonHousing2, aes(x = var))+
+  geom_boxplot()
+  }
+
+box(BostonHousing2$medv)
+```
+
+```{r}
+printer <- function(var){
+  arrange(BostonHousing2, desc(var))
+}
+
+printer(BostonHousing2$crim)
+```
+
